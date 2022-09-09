@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="whole-page-wrapper">
+      <div class="card container-whole-page">
+        <div class="card-body">
+          <!--кнопки верхние-->
+          <form id="search-form">
+            <div class="row input-group">
+              <div class="col-sm-auto">
+                <input
+                  type="search"
+                  class="form-control shadow-sm"
+                  placeholder="enter the city"
+                  aria-label="City"
+                  autofocus="on"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-sm-auto">
+                <input 
+                type="submit" 
+                value=" 🔍 search" 
+                class="btn-search shadow-sm"
+                />
+              </div>
+              <div class="col-sm-auto">
+                <button type="button" class="btn-current shadow-sm">
+                  current
+                </button>
+              </div>
+            </div>
+          </form>
+          <!--текущий город-->
+          <h1>
+            <strong id="desired-city">POZNAN</strong>
+          </h1>
+          <!--данные текущего города-->
+          <div class="row">
+            <div class="col-3 cur-date">
+              <ul>
+                <li id="current-date">SUNDAY, JULY 31</li>
+                <li id="current-time">⏰12:00</li>
+              </ul>
+            </div>
+            <div class="col-3 cur-temp">
+              <span id="current-temperature">22</span>
+              <span class="units">
+                <sup>
+                <a href="#" id="celsius-temperature">°C</a> |
+                <a href="#" id="fahrenheit-temperature">°F</a>
+                </sup>
+              </span>
+              </ul>
+            </div>
+            <div class="col-3 cur-weath">
+              <ul>
+                <li id="description">
+                cloudly
+                </li>
+                <li>
+                  <img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather04-512.png" 
+                  alt="cloudly"
+                  width="60px"
+                  id="icon">
+                </li>
+              </ul>
+            </div>
+            <div class="col-3 cur-air">
+              <ul>
+                <li>Humidity: <span id="humidity">71</span> %</li>
+                <li>Wind: <span id="wind">5</span> m/s</li>
+              </ul>
+            </div>
+          </div>
+            <!--прогноз на неделю-->
+            <h2>Weather 1-6 August</h2>
+          <div class="forecast-weather">
+            <div class="row ">
+              <div class="col-2">
+                <div class="forecast-weather-date">Monday<br />1 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather01-512.png"
+                  alt="sunny"
+                  width="60px"
+                  class="forecast-img"
+                />
+                <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">25°C</span>
+                  <span class="forecast-weather-temp-min">22°C</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="forecast-weather-date">Tuesday<br />2 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather03-512.png"
+                  alt="cloud"
+                  width="60px"
+                  class="forecast-img"
+                />
+                 <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">22°C</span>
+                  <span class="forecast-weather-temp-min">18°C</span>
+                 </div>
+              </div>
+              <div class="col-2">
+                <div class="forecast-weather-date">Wednesday<br />3 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather04-512.png"
+                  alt="cloudly"
+                  width="60px"
+                  class="forecast-img"
+                />
+                <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">20°C</span>
+                  <span class="forecast-weather-temp-min">17°C</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="forecast-weather-date">Thursday<br />4 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather04-512.png"
+                  alt="cloudly"
+                  width="60px"
+                  class="forecast-img"
+                />
+                <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">22°C</span>
+                  <span class="forecast-weather-temp-min">18°C</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="forecast-weather-date">Friday<br />5 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather01-512.png"
+                  alt="sunny"
+                  width="60px"
+                  class="forecast-img"
+                />
+                <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">25°C</span>
+                  <span class="forecast-weather-temp-min">21°C</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="forecast-weather-date">Saturday<br />6 August</div>
+                <img
+                  src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather03-512.png"
+                  alt="cloud"
+                  width="60px"
+                  class="forecast-img"
+                />
+                <div class="forecast-weather-temp">
+                  <span class="forecast-weather-temp-max">24°C</span>
+                  <span class="forecast-weather-temp-min">21°C</span>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="source-code">
+        <small><a href="https://github.com/valeriyarv07/weather-app-7-week">Open sourse-code</a>
+  by Valeriia Rybakova</small>
+      </div>
+    </div>
+    <script src="/src/script.js"></script>
+  </body>
+</html>
