@@ -47,7 +47,38 @@ timeNow.innerHTML = ` ⏰ ${hour}:${minute}`;
 //forecast
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = "Forecast";
+
+  let forecastHTML = `<div class="row">`;
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-weather-date">${day}<br />1 August</div>
+        <img
+          src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather01-512.png"
+          alt="sunny"
+          width="60px"
+          class="forecast-img"
+        />
+        <div class="forecast-weather-temp">
+          <span class="forecast-weather-temp-max">25°C</span>
+          <span class="forecast-weather-temp-min">22°C</span>
+        </div>
+      </div>
+      `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 // temperature and geoposition
