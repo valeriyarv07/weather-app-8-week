@@ -44,6 +44,12 @@ let date = currentTime.getDate();
 dateNow.innerHTML = `${day}, ${date} ${month}`;
 timeNow.innerHTML = ` ⏰ ${hour}:${minute}`;
 
+//forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = "Forecast";
+}
+
 // temperature and geoposition
 
 function showTemperature(response) {
@@ -139,3 +145,4 @@ let celsiusLink = document.querySelector("#celsius-temperature");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Dnipro");
+displayForecast();
