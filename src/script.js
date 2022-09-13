@@ -60,13 +60,6 @@ function formatDay(timestemp) {
   return days[day];
 }
 
-/* function displayForecastDate {
-  let forecastDate = document.querySelector("#forecast-date");
-  let date = currentTime.getDate();
-  dateNow.innerHTML = `${day}, ${date} ${month}`;
-}
- */
-
 //forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -83,7 +76,7 @@ function displayForecast(response) {
       <div class="col-2">
         <div class="forecast-weather-date">${formatDay(
           forecastDay.dt
-        )}<br /><span>1 August</span></div>     
+        )}</div>     
         <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
