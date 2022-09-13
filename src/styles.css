@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Oswald", sans-serif;
   text-align: center;
 }
 
@@ -78,6 +78,10 @@ p {
   background-color: #9b91af;
 }
 
+.row {
+  margin-bottom: 24px;
+}
+
 .cur-date {
   color: #1274c1;
   font-style: italic;
@@ -111,6 +115,12 @@ p {
 .cur-temp .active:hover {
   text-decoration: none;
 }
+
+/* .cur-img {
+  border: 2px solid rgba(18, 116, 193, 0.3);
+  border-radius: 50%;
+  background-color: rgba(18, 116, 193, 0.1);
+} */
 
 .cur-weath {
   display: block;
@@ -173,9 +183,9 @@ p {
 }
 
 .container-whole-page {
-  background-color: rgba(241, 112, 12, 0.02);
-  background-image: url(/src/img/sky.jpg);
-  background-size: 103%;
+  background-color: rgba(178, 178, 178, 0.2);
+  background-image: url(/src/img/sky2.jpg);
+  background-size: 100%;
   display: block;
   margin: 10px auto;
   padding: 10px;
